@@ -4,6 +4,7 @@
 @theme {
   --color-brand-main: #eafc60;
   --color-brand-accent: #8460fc;
+  --color-brand-gradient: linear-gradient(50deg, #eafc60 25%, #eeeeee 100%);
 
   --color-brand-neutral-100: #f2f2f2;
   --color-brand-neutral-500: #716e6e;
@@ -14,4 +15,27 @@
 
 body {
   font-family: var(--font-sans);
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+a:hover {
+  text-decoration: underline 2px var(--color-brand-accent);
+  text-underline-offset: 6px;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
 }
