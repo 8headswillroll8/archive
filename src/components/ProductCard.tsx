@@ -1,5 +1,6 @@
 import starIcon from "../assets/graphics/star-icon.svg";
 import type { ProductCardProps } from "../types/ProductCardProps";
+import fallbackImage from "../assets/images/fallback-image.webp";
 
 function ProductCard({
   title,
@@ -26,6 +27,10 @@ function ProductCard({
         <img
           src={image.url}
           alt={image.alt}
+          onError={(e) => {
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = fallbackImage;
+          }}
           className="aspect-square object-cover w-full"
         />
       </div>
