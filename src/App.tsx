@@ -8,6 +8,7 @@ import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
         <Route path="/checkout/success" element={<CheckoutSuccess />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
+
+      <Footer />
     </>
   );
 }
