@@ -13,6 +13,10 @@ function Products() {
     queryFn: getProducts,
   });
 
+  const filteredProducts = data?.filter((product) =>
+    product.title.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
   if (isLoading) {
     return <p>Loading products...</p>;
   }
@@ -27,7 +31,12 @@ function Products() {
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
       <section className="grid grid-cols-1 gap-6 px-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {data?.map((product) => (
+        {filteredProducts?.length === 0 && (
+          <p className="col-span-full py-3 text-brand-accent">
+            No matches. We checked twice. ¯\_(ツ)_/¯
+          </p>
+        )}
+        {filteredProducts?.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}
       </section>
