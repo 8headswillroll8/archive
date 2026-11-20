@@ -1,4 +1,5 @@
 export interface ProductCardProps {
+  id: string;
   title: string;
   price: number;
   discountedPrice: number;
@@ -8,7 +9,7 @@ export interface ProductCardProps {
   };
   rating: number;
   tags: string[];
-  review: {
+  reviews: {
     id: string;
     username: string;
     rating: number;

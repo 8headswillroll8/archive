@@ -36,7 +36,7 @@ function ProductCard({
             <img src={starIcon} alt="" />
           </span>
           {rating}
-          <span className="pl-1">({reviews.length})</span>
+          <span className="pl-0.5">({reviews.length})</span>
         </p>
       </div>
       <h3 className="font-medium">{title}</h3>
@@ -48,7 +48,7 @@ function ProductCard({
       </div>
       {hasDiscount && (
         <span className="inline-block rounded-md bg-brand-main py-1 px-2">
-          Saving {price - discountedPrice} kr
+          Saving {Math.round(price - discountedPrice)} kr
         </span>
       )}
     </article>
