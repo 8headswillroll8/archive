@@ -17,7 +17,7 @@ function ProductDetails({
 
   return (
     <article className="space-y-6 m-6">
-      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-center lg:gap-6">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-center lg:gap-12">
         <div>
           <img
             src={image.url}
@@ -26,7 +26,7 @@ function ProductDetails({
               e.currentTarget.onerror = null;
               e.currentTarget.src = fallbackImage;
             }}
-            className="aspect-square object-cover w-full md:max-w-137.5"
+            className="aspect-square object-cover w-full md:max-w-120"
           />
         </div>
         <div className="space-y-5">

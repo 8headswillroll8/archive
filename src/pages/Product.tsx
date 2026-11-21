@@ -2,6 +2,7 @@ import ProductDetails from "../components/ProductDetails";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import getProduct from "../api/getProduct";
+import ProductReview from "../components/ProductReview";
 
 function Product() {
   const { id } = useParams();
@@ -27,6 +28,7 @@ function Product() {
   return (
     <>
       <ProductDetails {...data} />
+      <ProductReview reviews={data.reviews} />
     </>
   );
 }
