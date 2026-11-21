@@ -35,13 +35,17 @@ function ProductCard({
         />
       </div>
       <div className="flex justify-between">
-        <p className="text-brand-neutral-500">{tags.join(", ")}</p>
+        <p className="text-brand-neutral-500">
+          {tags.join(", ").toUpperCase()}
+        </p>
         <p className="flex">
           <span>
             <img src={starIcon} alt="" />
           </span>
           {rating}
-          <span className="pl-0.5">({reviews.length})</span>
+          <span className="pl-0.5 text-brand-neutral-500">
+            ({reviews.length})
+          </span>
         </p>
       </div>
       <h3 className="font-medium">{title}</h3>
