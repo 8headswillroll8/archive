@@ -41,7 +41,9 @@ function ProductCard({
             <img src={starIcon} alt="" />
           </span>
           {rating}
-          <span className="pl-0.5">({reviews.length})</span>
+          <span className="pl-0.5 text-brand-neutral-500">
+            ({reviews.length})
+          </span>
         </p>
       </div>
       <h3 className="font-medium">{title}</h3>

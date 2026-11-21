@@ -1,5 +1,11 @@
+import ProductDetails from "../components/ProductDetails";
+
 function Product() {
-  return null;
+  return (
+    <>
+      <ProductDetails />
+    </>
+  );
 }
 
 export default Product;

@@ -4,6 +4,7 @@ import SearchBar from "../components/SearchBar";
 import ProductCard from "../components/ProductCard";
 import { useQuery } from "@tanstack/react-query";
 import getProducts from "../api/getProducts";
+import { Link } from "react-router-dom";
 
 function Products() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -37,7 +38,9 @@ function Products() {
           </p>
         )}
         {filteredProducts?.map((product) => (
-          <ProductCard key={product.id} {...product} />
+          <Link to={`/products/${product.id}`} key={product.id}>
+            <ProductCard {...product} />
+          </Link>
         ))}
       </section>
     </>
