@@ -31,95 +31,96 @@ function Contact() {
   }
 
   return (
-    <section className="mx-auto w-full max-w-5xl px-4 py-10">
+    <div>
       <PageBanner title="CONTACT" />
+      <section className="mx-auto w-full max-w-5xl px-4 py-10">
+        <p className="mt-3 mx-6 text-gray-500">
+          Need help with an order? Have a question? We're here for both.
+        </p>
 
-      <p className="mt-3 mx-6 text-gray-500">
-        Need help with an order? Have a question? We're here for both.
-      </p>
+        {isSubmitted ? (
+          <div role="status" className="text-brand-accent">
+            <p className="m-6">
+              Message received :-) We'll take it from here. You've done enough
+              typing for today.
+            </p>
+          </div>
+        ) : (
+          <form
+            noValidate
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-6 m-4 text-brand-neutral-500"
+          >
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div className="flex flex-col gap-2">
+                <label htmlFor="fullName">Full name</label>
+                <input
+                  id="fullName"
+                  type="text"
+                  {...register("fullName")}
+                  placeholder="Your full name"
+                  className="rounded-md border p-3 outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
+                />
+                {errors.fullName && (
+                  <p className="text-sm text-brand-alert">
+                    {errors.fullName.message}
+                  </p>
+                )}
+              </div>
 
-      {isSubmitted ? (
-        <div role="status" className="text-brand-accent">
-          <p className="m-6">
-            Message received :-) We'll take it from here. You've done enough
-            typing for today.
-          </p>
-        </div>
-      ) : (
-        <form
-          noValidate
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-6 m-4 text-brand-neutral-500"
-        >
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div className="flex flex-col gap-2">
+                <label htmlFor="email">Email address</label>
+                <input
+                  id="email"
+                  type="email"
+                  {...register("email")}
+                  placeholder="you@example.com"
+                  className="rounded-md border p-3 outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
+                />
+                {errors.email && (
+                  <p className="text-sm text-brand-alert">
+                    {errors.email.message}
+                  </p>
+                )}
+              </div>
+            </div>
+
             <div className="flex flex-col gap-2">
-              <label htmlFor="fullName">Full name</label>
+              <label htmlFor="subject">Subject</label>
               <input
-                id="fullName"
+                id="subject"
                 type="text"
-                {...register("fullName")}
-                placeholder="Your full name"
+                {...register("subject")}
+                placeholder="What's on your mind?"
                 className="rounded-md border p-3 outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
               />
-              {errors.fullName && (
+              {errors.subject && (
                 <p className="text-sm text-brand-alert">
-                  {errors.fullName.message}
+                  {errors.subject.message}
                 </p>
               )}
             </div>
 
             <div className="flex flex-col gap-2">
-              <label htmlFor="email">Email address</label>
-              <input
-                id="email"
-                type="email"
-                {...register("email")}
-                placeholder="you@example.com"
+              <label htmlFor="message">Message</label>
+              <textarea
+                id="message"
+                {...register("message")}
+                rows={5}
+                placeholder="Tell us everything..."
                 className="rounded-md border p-3 outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
               />
-              {errors.email && (
+              {errors.message && (
                 <p className="text-sm text-brand-alert">
-                  {errors.email.message}
+                  {errors.message.message}
                 </p>
               )}
             </div>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label htmlFor="subject">Subject</label>
-            <input
-              id="subject"
-              type="text"
-              {...register("subject")}
-              placeholder="What's on your mind?"
-              className="rounded-md border p-3 outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
-            />
-            {errors.subject && (
-              <p className="text-sm text-brand-alert">
-                {errors.subject.message}
-              </p>
-            )}
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label htmlFor="message">Message</label>
-            <textarea
-              id="message"
-              {...register("message")}
-              rows={5}
-              placeholder="Tell us everything..."
-              className="rounded-md border p-3 outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
-            />
-            {errors.message && (
-              <p className="text-sm text-brand-alert">
-                {errors.message.message}
-              </p>
-            )}
-          </div>
-          <Button name="Send message" type="submit" />
-        </form>
-      )}
-    </section>
+            <Button name="Send message" type="submit" />
+          </form>
+        )}
+      </section>
+    </div>
   );
 }
 
