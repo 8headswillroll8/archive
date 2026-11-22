@@ -4,9 +4,14 @@ import logo from "../assets/graphics/archive-logo.svg";
 import menu from "../assets/graphics/menu-icon.svg";
 import shoppingBag from "../assets/graphics/shopping-bag-icon.svg";
 import close from "../assets/graphics/close-icon.svg";
+import { useCartStore } from "../stores/cartStore";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const items = useCartStore((state) => state.items);
+
+  const totalQuantity = items.reduce((total, item) => total + item.quantity, 0);
 
   function handleMenuClick() {
     setIsMenuOpen((prev) => !prev);
@@ -36,6 +41,9 @@ function Header() {
             className="flex justify-center items-center"
           >
             <img src={shoppingBag} alt="" className="h-5" />
+            <span className="text-brand-neutral-500 pl-1.5">
+              {totalQuantity}
+            </span>
           </Link>
           <button
             onClick={handleMenuClick}

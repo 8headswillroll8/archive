@@ -2,8 +2,10 @@ import fallbackImage from "../assets/images/fallback-image.webp";
 import shoppingBagIcon from "../assets/graphics/shopping-bag-icon-white.svg";
 import starIcon from "../assets/graphics/star-icon.svg";
 import type { ProductProps } from "../types/ProductProps";
+import { useCartStore } from "../stores/cartStore";
 
 function ProductDetails({
+  id,
   title,
   description,
   price,
@@ -14,6 +16,21 @@ function ProductDetails({
   reviews,
 }: ProductProps) {
   const hasDiscount = discountedPrice < price;
+
+  const addItem = useCartStore((state) => state.addItem);
+
+  function handleAddToCart() {
+    addItem({
+      id,
+      title,
+      price,
+      discountedPrice,
+      image,
+      quantity: 1,
+    });
+  }
+
+  console.log(useCartStore.getState().items);
 
   return (
     <article className="space-y-6 m-6">
@@ -50,7 +67,10 @@ function ProductDetails({
               <p className="line-through text-brand-neutral-500">{price} kr</p>
             )}
           </div>
-          <button className="flex gap-2 items-center text-white bg-brand-accent rounded-md px-6 py-2 hover:font-medium">
+          <button
+            onClick={handleAddToCart}
+            className="flex gap-2 items-center text-white bg-brand-accent rounded-md px-6 py-2 hover:font-medium"
+          >
             <span>
               <img src={shoppingBagIcon} alt="" className="w-4.5" />
             </span>
