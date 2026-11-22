@@ -4,19 +4,60 @@ import SearchBar from "../components/SearchBar";
 import ProductCard from "../components/ProductCard";
 import { useQuery } from "@tanstack/react-query";
 import getProducts from "../api/getProducts";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+
+const categoryTags = {
+  you: [
+    "fashion",
+    "beauty",
+    "perfume",
+    "shoes",
+    "bags",
+    "jewelry",
+    "glasses",
+    "skin care",
+    "shampoo",
+    "accessories",
+    "watch",
+    "watches",
+    "wearables",
+  ],
+  life: [
+    "electronics",
+    "audio",
+    "headphones",
+    "storage",
+    "gaming",
+    "computers",
+    "peripherals",
+    "toy",
+  ],
+};
 
 function Products() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category");
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["products"],
     queryFn: getProducts,
   });
 
-  const filteredProducts = data?.filter((product) =>
-    product.title.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  const activeTags =
+    category === "you" || category === "life" ? categoryTags[category] : null;
+
+  const filteredProducts = data?.filter((product) => {
+    const matchesSearch = product.title
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+
+    const matchesCategory =
+      !activeTags ||
+      product.tags.some((tag) => activeTags.includes(tag.toLowerCase()));
+
+    return matchesSearch && matchesCategory;
+  });
 
   if (isLoading) {
     return <p>Loading products...</p>;
