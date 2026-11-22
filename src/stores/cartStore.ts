@@ -5,6 +5,7 @@ interface CartStore {
   items: CartItem[];
   addItem: (item: CartItem) => void;
   updateQuantity: (id: string, change: number) => void;
+  removeItem: (id: string) => void;
 }
 
 export const useCartStore = create<CartStore>((set) => ({
@@ -38,6 +39,13 @@ export const useCartStore = create<CartStore>((set) => ({
             ? { ...cartItem, quantity: Math.max(1, cartItem.quantity + change) }
             : cartItem,
         ),
+      };
+    });
+  },
+  removeItem: (id) => {
+    set((state) => {
+      return {
+        items: state.items.filter((cartItem) => cartItem.id !== id),
       };
     });
   },
