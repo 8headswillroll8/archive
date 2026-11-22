@@ -28,7 +28,7 @@ function Products() {
 
   return (
     <>
-      <PageBanner />
+      <PageBanner title="SHOP" />
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
       <section className="grid grid-cols-1 gap-6 px-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

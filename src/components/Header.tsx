@@ -19,8 +19,10 @@ function Header() {
 
   return (
     <header className="bg-brand-neutral-100 ">
-      <div className="flex justify-center items-center text-white bg-brand-accent w-full h-6">
-        <p className="text-xs">FREE SHIPPING ON ORDERS OVER 999 KR</p>
+      <div className="flex justify-center items-center text-white bg-brand-accent w-full h-7">
+        <p className="text-xs lg:text-lg">
+          FREE SHIPPING ON ORDERS OVER 999 KR
+        </p>
       </div>
 
       <div className="flex justify-between mx-auto max-w-7xl px-4 py-4">

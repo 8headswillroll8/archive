@@ -1,7 +1,11 @@
-function PageBanner() {
+interface PageBannerProps {
+  title: string;
+}
+
+function PageBanner({ title }: PageBannerProps) {
   return (
-    <section className="flex flex-col justify-center gap-3 h-50 m-6 p-6 md:p-8 bg-(image:--color-brand-gradient) ">
-      <h1>SHOP</h1>
+    <section className="m-6 flex h-50 flex-col justify-center gap-3 bg-(image:--color-brand-gradient) p-6 md:p-8">
+      <h1>{title}</h1>
     </section>
   );
 }
