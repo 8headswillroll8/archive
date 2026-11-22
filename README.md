@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+# ARCHIVE®
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An online store for things you didn't know you needed.
 
-Currently, two official plugins are available:
+ARCHIVE is a responsive e-commerce application built with React and TypeScript. Featuring a curated shopping experience, playful branding, and a collection of everyday objects and questionable necessities.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Live Demo
 
-## React Compiler
+[Visit ARCHIVE](https://archive-curated.vercel.app/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Browse products fetched from the Noroff Online Shop API
+- View individual product details and customer reviews
+- Search for products
+- Explore curated product categories
+- Browse discounted products
+- Add products to a shopping cart
+- Adjust quantities and remove items
+- View dynamic cart totals and shipping costs
+- Complete a simulated checkout flow
+- Submit a validated contact form
+- Responsive layouts for desktop and mobile
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS v4
+- React Router
+- TanStack Query
+- Zustand
+- React Hook Form
+- Zod
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/8headswillroll8/archive.git
+cd archive
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Start the development server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm run dev
 ```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+## API
+
+Product data is fetched from the [Noroff Online Shop API](https://v2.api.noroff.dev/online-shop).
+
+The API provides product information, images, pricing, discounts, and customer reviews.
+
+## Project Information
+
+Developed as part of the JavaScript Frameworks course at Noroff.
+
+The checkout is simulated. No real purchases or payments are processed.
+
+## Deployment
+
+Hosted on Vercel.
+
+[archive-curated.vercel.app](https://archive-curated.vercel.app/)
