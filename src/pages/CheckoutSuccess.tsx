@@ -6,7 +6,7 @@ function CheckoutSuccess() {
 
   return (
     <section className="mx-auto flex w-full max-w-3xl flex-col items-center gap-6 px-4 py-20 text-center">
-      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-brand-accent text-white"></div>
+      <span className="text-brand-main text-6xl">ヘ( ^o^)ノ</span>
 
       <h1>You have excellent taste. We knew.</h1>
 

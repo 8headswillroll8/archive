@@ -31,8 +31,8 @@ function Cart() {
             <div className="w-full space-y-4 lg:w-1/3 lg:shrink-0">
               <CartSummary />
               <Button
-                name="Proceed to checkout"
-                onClick={() => navigate("/checkout")}
+                name="Checkout"
+                onClick={() => navigate("/checkout/success")}
               />
             </div>
           </div>
