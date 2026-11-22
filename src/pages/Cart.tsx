@@ -32,7 +32,7 @@ function Cart() {
               <CartSummary />
               <Button
                 name="Proceed to checkout"
-                onClick={() => navigate("/checkout")}
+                onClick={() => navigate("/checkout/success")}
               />
             </div>
           </div>
