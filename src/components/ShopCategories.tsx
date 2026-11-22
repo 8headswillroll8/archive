@@ -62,7 +62,7 @@ function ShopCategories() {
           </div>
 
           <p className="pt-3">
-            Fashion, beauty, accessories, footwear
+            Tech, audio, gadgets, everyday objects
             <span>
               <img
                 src={arrowTopRight}
