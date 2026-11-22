@@ -2,11 +2,14 @@ import Button from "../components/Button";
 import CartItem from "../components/CartItem";
 import CartSummary from "../components/CartSummary";
 import { useCartStore } from "../stores/cartStore";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
   const items = useCartStore((state) => state.items);
 
   const totalQuantity = items.reduce((total, item) => total + item.quantity, 0);
+
+  const navigate = useNavigate();
 
   return (
     <div className="mx-auto w-full max-w-337.5 px-4">
@@ -14,7 +17,7 @@ function Cart() {
         <h1 className="text-2xl! md:text-[34px]!">CART ({totalQuantity})</h1>
 
         {items.length === 0 ? (
-          <p>Your cart is empty.</p>
+          <p className="text-brand-accent">Your cart is empty.</p>
         ) : (
           <div className="flex flex-col gap-4 lg:flex-row lg:gap-6">
             {/* Cart items */}
@@ -27,7 +30,10 @@ function Cart() {
             {/* Cart summary */}
             <div className="w-full space-y-4 lg:w-1/3 lg:shrink-0">
               <CartSummary />
-              <Button name="Proceed to checkout" />
+              <Button
+                name="Proceed to checkout"
+                onClick={() => navigate("/checkout")}
+              />
             </div>
           </div>
         )}
