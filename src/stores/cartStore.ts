@@ -4,6 +4,7 @@ import { create } from "zustand";
 interface CartStore {
   items: CartItem[];
   addItem: (item: CartItem) => void;
+  updateQuantity: (id: string, change: number) => void;
 }
 
 export const useCartStore = create<CartStore>((set) => ({
@@ -26,6 +27,17 @@ export const useCartStore = create<CartStore>((set) => ({
 
       return {
         items: [...state.items, { ...item, quantity: 1 }],
+      };
+    });
+  },
+  updateQuantity: (id, change) => {
+    set((state) => {
+      return {
+        items: state.items.map((cartItem) =>
+          cartItem.id === id
+            ? { ...cartItem, quantity: Math.max(1, cartItem.quantity + change) }
+            : cartItem,
+        ),
       };
     });
   },
